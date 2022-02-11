@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgwyness <mgwyness@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgwyness <mgwyness@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 15:38:12 by mgwyness          #+#    #+#             */
-/*   Updated: 2022/01/25 15:44:31 by mgwyness         ###   ########.fr       */
+/*   Updated: 2022/02/12 00:26:42 by mgwyness         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,17 @@ void	update_img(t_map *map_data, int key)
 	static int	view_mode = 0;
 
 	background(map_data);
-	if (key == 19)
-		view_mode = 1;
-	if (key == 20)
-		view_mode = 0;
-	if (view_mode)
-		view_above(map_data, map_data->img, -1, -1);
-	else
+	//if (key == 19)
+	//	view_mode = 1;
+	//if (key == 20)
+	//	view_mode = 0;
+	//if (view_mode)
+	//{
+		
+		
+	//}
+	//	view_above(map_data, map_data->img, -1, -1);
+	//else
 		isometric_map(map_data, map_data->img, -1);
 	mlx_put_image_to_window(map_data->mlx_ptr, map_data->win_ptr,
 		map_data->img->image, 0, 0);
@@ -54,8 +58,8 @@ int	key_num(int key, t_map *map_data)
 		map_data->zoom += map_data->zoom / 25;
 	else if (key == 1)
 		map_data->zoom -= map_data->zoom / 25;
-	else if (key == 19)
-		view_above(map_data, map_data->img, -1, -1);
+	//else if (key == 19)
+	//	view_above(map_data, map_data->img, -1, -1);
 	else if (key == 20)
 		isometric_map(map_data, map_data->img, -1);
 	else
@@ -73,8 +77,8 @@ int	mouse_zoom(int key, int x, int y, t_map *map_data)
 		map_data->zoom += zoom / 16;
 	else if (key == MOUSE_DOWN && zoom > 1.1)
 		map_data->zoom -= zoom / 16;
-	else if (key == 19)
-		view_above(map_data, map_data->img, -1, -1);
+	//else if (key == 19)
+	//	view_above(map_data, map_data->img, -1, -1);
 	else
 		isometric_map(map_data, map_data->img, -1);
 	update_img(map_data, key);
@@ -89,14 +93,14 @@ void	fdf(char **argv)
 	map_data = (t_map *)malloc(sizeof(t_map));
 	read_map(argv[1], map_data);
 	map_data->mlx_ptr = mlx_init();
-	map_data->win_ptr = mlx_new_window(map_data->mlx_ptr, HEIGHT, WIDTH, "FDF");
-	img.image = mlx_new_image(map_data->mlx_ptr, HEIGHT, WIDTH);
+	map_data->win_ptr = mlx_new_window(map_data->mlx_ptr, WIDTH, HEIGHT, "FDF");
+	img.image = mlx_new_image(map_data->mlx_ptr, WIDTH, HEIGHT);
 	img.address = mlx_get_data_addr(img.image, &img.bits_per_pixel,
 			&img.line_len, &img.endian);
-	map_data->zoom = 20;
+	map_data->zoom = 13;
 	map_data->img = &img;
-	map_data->shift_x = 300;
-	map_data->shift_y = 200;
+	map_data->shift_x = 350;
+	map_data->shift_y = 50;
 	isometric_map(map_data, map_data->img, -1);
 	mlx_hook(map_data->win_ptr, 4, 0, mouse_zoom, map_data);
 	mlx_key_hook(map_data->win_ptr, key_num, map_data);

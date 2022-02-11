@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgwyness <mgwyness@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgwyness <mgwyness@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:21:39 by mgwyness          #+#    #+#             */
-/*   Updated: 2022/01/25 15:23:30 by mgwyness         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:04:48 by mgwyness         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	shift_dot(t_point *p, t_map *map_data)
 
 void	isom(t_point *p, int z)
 {
-	p->x = (p->x - p->y) * cos(0.8);
-	p->y = (p->x + p->y) * sin(0.8) - z;
+	p->x = (p->x - p->y) * cos(1);
+	p->y = (p->x + p->y) * sin(1) - z;
 }

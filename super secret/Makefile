@@ -1,5 +1,19 @@
-NAME 			= 	fdf
-#BONUSNAME 		= 	checker
+NAME 			= 	valentine
+FCARD			= 	f
+SCARD			= 	s
+TCARD			=	t
+FIRST			=	"./valentine test_maps/card1.fdf"
+SEC				=	"./valentine test_maps/card2.fdf"
+THIRD			=	"./valentine test_maps/card3.fdf"
+GREETINGS		=	"		ПРИВЕТ, МОЁ СОЛНЫШКО!!"
+					
+				#	Я нарисила для тебя смешно-романтишно-эротишные валентинки
+				#	Их всего 3, и лучше их открывать по порядку";
+
+#		printf("Usage: make [options] [target]\n");
+#	printf("Options:\n");
+# printf("\t-f\tdisplays first valentine card
+
 
 CC 				= 	gcc
 RM 				= 	rm -rf
@@ -8,7 +22,7 @@ SRCDIR 			= 	./srcs/
 OBJDIR 			= 	./obj/
 INCDIR 			= 	./includes/
 
-SRCS 			= 	fdf.c \
+SRCS 			= 	valentine.c \
 					main.c \
 					utils.c \
 					utils2.c \
@@ -30,6 +44,23 @@ $(OBJDIR)%.o 	: 	$(SRCDIR)%.c $(INCDIR)/fdf.h $(INCDIR)/get_next_line.h
 
 $(NAME)			: 	$(OBJDIR) $(OBJ) $(INCDIR) 
 					$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+					@echo ""
+					@echo ""
+					@echo "	✿✿✿✿ ПРИВЕТ, МОЁ СОЛНЫШКО!! ✿✿✿✿ "
+					@echo "Я нарисила для тебя смешно-романтишно-эротишные валентинки"
+					@echo "Их всего 3, и лучше их открывать по порядку";
+					@echo "А также можешь полюбоваться на наши милые портретики"
+					@echo ""
+					@echo ""
+					@echo "		Команды:"
+					@echo "make f   ->  первая открытка"
+					@echo "make s   ->  вторая открытка"
+					@echo "make t   ->  третья открытка (осторожно!! хорни)"
+					@echo "open d   ->  портрет моего любимого котика"
+					@echo "open z   ->  портрет одной хорошей девочки"
+					@echo ""
+					@echo ""
+					@echo "Я люблю тебя, мой самый красивый, ласковый, нежный, верный мальчик ♥♥♥♥♥♥♥♥"
 
 clean			:
 					$(RM) $(OBJDIR)
@@ -39,10 +70,14 @@ fclean			: 	clean
 
 re				: 	fclean all
 
-bonus			: 	$(BONUSNAME)
+$(FCARD)		:	
+					bash -c $(FIRST)
 
-$(BONUSNAME)	: 	$(OBJDIR) $(BONUSOBJ)
-					$(CC) $(CFLAGS)  $(BONUSOBJ) -o $(BONUSNAME)
+$(SCARD)		:	
+					bash -c $(SEC)
+
+$(TCARD)		:	
+					bash -c $(THIRD)
 
 $(OBJDIR)		:
 					mkdir -p $(OBJDIR)

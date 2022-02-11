@@ -6,7 +6,7 @@
 /*   By: mgwyness <mgwyness@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:12:35 by mgwyness          #+#    #+#             */
-/*   Updated: 2022/01/26 21:18:06 by mgwyness         ###   ########.fr       */
+/*   Updated: 2022/01/28 20:41:21 by mgwyness         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	draw_line(t_point *p, t_point *p1, t_data *data, int colour)
 	y_step /= max;
 	while ((int)(p->x - p1->x) || (int)(p->y - p1->y))
 	{
-		if (p->x >= 0 && p->x < HEIGHT && p->y >= 0 && p->y < WIDTH)
+		if (p->x >= 0 && p->x < WIDTH && p->y >= 0 && p->y < HEIGHT)
 			my_mlx_pixel_put(data, (int)p->x, (int)p->y, colour);
 		p->x += x_step;
 		p->y += y_step;

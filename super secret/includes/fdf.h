@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgwyness <mgwyness@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgwyness <mgwyness@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 15:30:04 by mgwyness          #+#    #+#             */
-/*   Updated: 2022/01/25 15:43:35 by mgwyness         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:14:44 by mgwyness         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FDF_H
 # define MOUSE_DOWN	4
 # define MOUSE_UP	5
-# define HEIGHT		1000
-# define WIDTH		1000
+# define WIDTH		1200
+# define HEIGHT		800
 
 # include <mlx.h>
 # include <math.h>
@@ -64,6 +64,7 @@ char	**ft_split(char *s, char c);
 int		ft_ptrlen(char **s);
 
 void	fdf(char **argv);
+int		pick_colour(int x, int y);
 void	read_map(char *map, t_map *map_data);
 void	fill_colours(t_map *map_data, char **str, int i);
 void	fill_matrix(t_map *map_data, char *file);
@@ -75,7 +76,7 @@ char	*get_next_line(int fd);
 void	finish(int exitcode);
 
 void	draw_line(t_point *p, t_point *p1, t_data *data, int colour);
-void	draw_map(t_map *map_data, t_point *p, t_point *p1);
+void	draw_map(t_map *map_data, t_point *p, t_point *p1, int x, int y, int q);
 void	view_above(t_map *map_data, t_data *data, int x, int y);
 void	isometric_map(t_map *map, t_data *data, int i);
 int		mouse_zoom(int key, int x, int y, t_map *map_data);
